@@ -28,20 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.btnLoad = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(12, 12);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(95, 23);
+            this.btnLoad.TabIndex = 0;
+            this.btnLoad.Text = "Загрузить";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 415);
+            this.ClientSize = new System.Drawing.Size(467, 244);
+            this.Controls.Add(this.btnLoad);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Загрузка информации о почтовых индексах РБ";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
