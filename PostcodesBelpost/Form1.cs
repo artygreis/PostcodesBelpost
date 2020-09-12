@@ -76,7 +76,7 @@ namespace PostcodesBelpost
         private int countStreet = 1;
         private int countZipcode = 1;
 
-        private bool addMode = false;
+        private bool addMode = true;
         private void btnLoad_Click(object sender, EventArgs e)
         {
             for (var idObl = 0; idObl < namesObl.Count(); idObl++)
@@ -121,7 +121,7 @@ namespace PostcodesBelpost
         {
             var lastLine = File.ReadLines(FILE_NAME_OBLAST).Last();
             var temp = lastLine.Split(',');
-            if (temp[1].Contains(oblast.Item2))
+            if (regTemplat.Replace(temp[1], "").Trim() == regTemplat.Replace(oblast.Item2, "").Trim())
             {
                 return true;
             }
@@ -265,7 +265,7 @@ namespace PostcodesBelpost
                     {
                         var currentLine = sr.ReadLine();
                         var temp = currentLine.Split(',');
-                        if (temp[1].Contains(typeStreet.Item2))
+                        if (regTemplat.Replace(temp[1], "").Trim() == regTemplat.Replace(typeStreet.Item2, "").Trim())
                         {
                             countType = Convert.ToInt32(regTemplat.Replace(temp[0], "").Trim());
                             typeStreet.Item1 = Convert.ToInt32(temp[0].Remove(0,1));
@@ -333,7 +333,7 @@ namespace PostcodesBelpost
                     {
                         var currentLine = sr.ReadLine();
                         var temp = currentLine.Split(',');
-                        if (temp[1].Contains(street.Item2))
+                        if (regTemplat.Replace(temp[1], "").Trim() == regTemplat.Replace(street.Item2, "").Trim())
                         {
                             countStreet = Convert.ToInt32(regTemplat.Replace(temp[0], "").Trim());
                             street.Item1 = Convert.ToInt32(temp[0].Remove(0, 1));
